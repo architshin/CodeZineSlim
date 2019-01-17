@@ -12,4 +12,10 @@ $app->get("/hello",
 		print("<h1>Hello World!</h1>");
 	}
 );
+$app->post("/helloPost",
+	function(Request $request, Response $response, array $args): void
+	{
+		print("<h1>POSTメソッドでこんにちは!</h1>");
+	}
+);
 $app->run();
