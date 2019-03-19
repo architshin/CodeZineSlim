@@ -55,3 +55,12 @@ $app->any("/no4/forStatement1",
 		return $view->render($response, "no4/forStatement1.html");
 	}
 );
+
+$app->any("/no4/forStatement2",
+	function(Request $request, Response $response, array $args): Response
+	{
+		$assign["resultList"] = ["A"=>"田中", "B"=>"中野", "C"=>"野村"];
+		$view = new Twig("../templates");
+		return $view->render($response, "no4/forStatement2.html", $assign);
+	}
+);
