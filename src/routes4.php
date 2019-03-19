@@ -47,3 +47,11 @@ $app->any("/no4/ifStatement",
 		return $view->render($response, "no4/ifStatement.html", $assign);
 	}
 );
+
+$app->any("/no4/forStatement1",
+	function(Request $request, Response $response, array $args): Response
+	{
+		$view = new Twig("../templates");
+		return $view->render($response, "no4/forStatement1.html");
+	}
+);
