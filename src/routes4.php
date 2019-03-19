@@ -29,3 +29,12 @@ $app->any("/no4/helloWithVals",
 		return $view->render($response, "no4/helloWithVals.html", $assign);
 	}
 );
+
+$app->any("/no4/filters",
+	function(Request $request, Response $response, array $args): Response
+	{
+		$assign["msg"] = "こんにちは。\nさようなら。";
+		$view = new Twig("../templates");
+		return $view->render($response, "no4/filters.html", $assign);
+	}
+);
