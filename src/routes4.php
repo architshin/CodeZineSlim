@@ -38,3 +38,12 @@ $app->any("/no4/filters",
 		return $view->render($response, "no4/filters.html", $assign);
 	}
 );
+
+$app->any("/no4/ifStatement",
+	function(Request $request, Response $response, array $args): Response
+	{
+		$assign["rand"] = rand(1, 3);
+		$view = new Twig("../templates");
+		return $view->render($response, "no4/ifStatement.html", $assign);
+	}
+);
