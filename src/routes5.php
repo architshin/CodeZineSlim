@@ -24,3 +24,19 @@ $app->any("/no5/helloTwigWithContainer",
 		return $view->render($response, "hello.html");
 	}
 );
+
+$app->any("/no5/helloTwigWithContainer2",
+	function(Request $request, Response $response, array $args): Response
+	{
+		$view = $this["view"];
+		return $view->render($response, "hello.html");
+	}
+);
+
+$app->any("/no5/helloTwigWithContainer3",
+	function(Request $request, Response $response, array $args): Response
+	{
+		$view = $this->view;
+		return $view->render($response, "hello.html");
+	}
+);
