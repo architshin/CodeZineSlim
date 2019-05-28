@@ -40,3 +40,12 @@ $app->any("/no5/helloTwigWithContainer3",
 		return $view->render($response, "hello.html");
 	}
 );
+
+$app->any("/no5/writeToLog",
+	function(Request $request, Response $response, array $args): void
+	{
+		$logger = $this->get("logger");
+		$logger->info("ログに書き出しました。");
+		print("<h1>ログへの書き出し実験</h1>");
+	}
+);
