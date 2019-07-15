@@ -5,7 +5,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Container\ContainerInterface;
 
-
 class HelloController
 {
 	//Slimのコンテナインスタンスを格納するプロパティ。
