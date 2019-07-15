@@ -1,9 +1,10 @@
 <?php
+namespace CodeZineSlim\FirstSlim\controllers\no6;
+
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Container\ContainerInterface;
 
-namespace CodeZineSlim\FirstSlim\controllers\no6;
 
 class HelloController
 {
