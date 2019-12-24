@@ -25,7 +25,7 @@ $app = AppFactory::create();
 
 $app->setBasePath("/firstslim/src/public");
 require_once("../routes.php");
-// require_once("../routes4.php");
+require_once("../routes4.php");
 // require_once("../routes5.php");
 // require_once("../routes6.php");
 
