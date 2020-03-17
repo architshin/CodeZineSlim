@@ -1,51 +1,46 @@
 <?php
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use \Slim\Views\Twig;
+use Slim\Views\Twig;
 
-function getTwigInstance()
-{
-	$view = new Twig("../templates");
+function getTwigInstance() {
+	$view = Twig::create("../templates");
 	return $view;
 }
 
 $app->any("/no5/helloTwigWithFunc",
-	function(Request $request, Response $response, array $args): Response
-	{
+	function(Request $request, Response $response, array $args): Response {
 		$view = getTwigInstance();
 		return $view->render($response, "hello.html");
 	}
 );
 
 $app->any("/no5/helloTwigWithContainer",
-	function(Request $request, Response $response, array $args): Response
-	{
+	function(Request $request, Response $response, array $args): Response {
 		$view = $this->get("view");
 		return $view->render($response, "hello.html");
 	}
 );
 
-$app->any("/no5/helloTwigWithContainer2",
-	function(Request $request, Response $response, array $args): Response
-	{
-		$view = $this["view"];
-		return $view->render($response, "hello.html");
-	}
-);
+// $app->any("/no5/helloTwigWithContainer2",
+// 	function(Request $request, Response $response, array $args): Response {
+// 		$view = $this["view"];
+// 		return $view->render($response, "hello.html");
+// 	}
+// );
 
-$app->any("/no5/helloTwigWithContainer3",
-	function(Request $request, Response $response, array $args): Response
-	{
-		$view = $this->view;
-		return $view->render($response, "hello.html");
-	}
-);
+// $app->any("/no5/helloTwigWithContainer3",
+// 	function(Request $request, Response $response, array $args): Response {
+// 		$view = $this->view;
+// 		return $view->render($response, "hello.html");
+// 	}
+// );
 
 $app->any("/no5/writeToLog",
-	function(Request $request, Response $response, array $args): void
-	{
+	function(Request $request, Response $response, array $args): Response {
 		$logger = $this->get("logger");
 		$logger->info("ログに書き出しました。");
 		print("<h1>ログへの書き出し実験</h1>");
+		return $response;
 	}
 );
