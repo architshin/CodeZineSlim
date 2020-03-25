@@ -11,7 +11,7 @@ class AfterHelloMiddleware implements MiddlewareInterface
 	public function process(Request $request, RequestHandlerInterface $handler): Response
 	{
 		$response = $handler->handle($request);
-		print("AfterHelloMidlewareからHello!<br>");
+		print("AfterHelloMiddlewareからHello!<br>");
 		return $response;
 	}
 }

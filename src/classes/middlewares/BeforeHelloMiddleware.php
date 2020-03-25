@@ -10,7 +10,7 @@ class BeforeHelloMiddleware implements MiddlewareInterface
 {
 	public function process(Request $request, RequestHandlerInterface $handler): Response
 	{
-		print("BeforeHelloMidlewareからHello!<br>");
+		print("BeforeHelloMiddlewareからHello!<br>");
 		$response = $handler->handle($request);
 		return $response;
 	}
