@@ -5,6 +5,7 @@ use Slim\Views\Twig;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
+use CodeZineSlim\FirstSlim\exceptions\CustomErrorRenderer;
 
 require_once("../vendor/autoload.php");
 
@@ -23,7 +24,9 @@ AppFactory::setContainer($container);
 $app = AppFactory::create();
 
 $app->addRoutingMiddleware();
-$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$errorMiddleware = $app->addErrorMiddleware(false, true, true);
+$errorHandler = $errorMiddleware->getDefaultErrorHandler();
+$errorHandler->registerErrorRenderer("text/html", CustomErrorRenderer::class);
 
 $app->setBasePath("/firstslim/src/public");
 require_once("../routes.php");
