@@ -22,6 +22,9 @@ $container->set("logger", function($container) {
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 
+$app->addRoutingMiddleware();
+$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+
 $app->setBasePath("/firstslim/src/public");
 require_once("../routes.php");
 require_once("../routes4.php");
